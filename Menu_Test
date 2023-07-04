@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sales Tracker</title>
+	<style>
+		/* Form container */ 
+		.form-container { 
+		    max-width: 500px; 
+		    margin: 0 auto; 
+		    padding: 100px;
+		    background-color: #ffc2d1;
+		    border-radius: 10px;
+		    box-shadow: #fb6f92;
+		}
+		/* Form title */
+		.form-title { 
+		    margin-top: 0;
+		    margin-bottom: 20px; 
+		    font-size: 24px; 
+		    font-weight: bold;
+		}
+		/* Form fieldset */
+		.form-fieldset {
+		    border: none;
+		    padding: 0;
+		    margin: 0;
+		}
+		/* Form label */
+		.form-label {
+		    display: block;
+		    margin-bottom: 5px;
+		    font-weight: bold;
+		}
+		/* Form input */
+		.form-input {
+		    display: block;
+		    width: 100%;
+		    padding: 10px;
+		    margin-bottom: 20px;
+		    font-size: 16px;
+		    border-radius: 5px;
+		    border: none;
+		    background-color: #fff;
+		    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+		}
+		/* Form button */
+		.form-button {
+		    display: block;
+		    width: 100%;
+		    padding: 10px;
+		    background-color: #fb6f92;
+		    border-radius: 5px;
+		    border: none;
+		    color: #fff;
+		    font-size: 16px;
+		    cursor: pointer;
+		    transition: background-color 0.3s ease;
+		}
+		.form-button:hover {
+		    background-color: #ff8da1;
+		}
+	</style>
+</head>
+<body>
+	<div class="form-container">
+		<h1 class="form-title">Sales Tracker</h1>
+		<form action="SAS_MKT_salestracker.php" class="form-fieldset" method="post">
+				<tr>
+					<td><label for="goods-type" class="form-label">Type of Goods:</label></td>
+					<td>
+						<select name="goods-type" class="form-input" id="goods-type">
+							<option value="Foods">Foods</option>
+							<option value="Buns">Buns</option>
+							<option value="Beverages">Beverages</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><label for="item-name" class="form-label">Item Name:</label></td>
+					<td>
+						<select name="item-name" class="form-input" id="item-name">
+							<optgroup label="Snacks">
+								<option value="Takoyaki">Takoyaki</option>
+								<option value="Dumplings">Dumplings</option>
+								<option value="Nachos">Nachos</option>
+								<option value="Siomai">Siomai</option>
+							</optgroup>
+							<optgroup label="Buns">
+								<option value="Classic Burger">Classic Burger</option>
+								<option value="Burger w/ cheese">Burger w/ cheese</option>
+								<option value="Burger Overload">Burger Overload</option>
+								<option value="Classic Hotdog Sandwich">Classic Hotdog Sandwich</option>
+                                <option value="Hotdog Sandwich Overload">Hotdog Sandwich Overload</option>
+                            </optgroup>
+                            <optgroup label="Milktea">
+                                <option value="Chocolate Milktea">Chocolate Milktea</option>
+                                <option value="Okinawa Milktea">Okinawa Milktea</option>
+                                <option value="Dark Chocolate">Dark Chocolate</option>
+                                <option value="Choco Kisses Milktea">Choco Kisses Milktea</option>
+                                <option value="Thai Milktea">Thai Milktea</option>
+                                <option value="Wintermelon Milktea">Wintermelon Milktea</option>
+                            </optgroup>
+                            <optgroup label="Fruit tea" class="form-label">
+                                <option value="Blueberry">Blueberry</option>
+                                <option value="Strawberry">Strawberry</option>
+                                <option value="Lychee">Lychee</option>
+                                <option value="Green apple">Green apple</option>
+                                <option value="Mango">Mango</option>
+                            </optgroup>
+                            <optgroup label="Fruit Soda" class="form-label">
+                                <option value="Blue Lemonade">Blue Lemonade</option>
+                                <option value="Blueberry">Blueberry</option>
+                                <option value="Strawberry">Strawberry</option>
+                                <option value="Mango">Mango</option>
+                                <option value="Green Apple">Green Apple</option>
+                            </optgroup>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="quantity" class="form-label">Quantity:</label></td>
+                    <td><input type="number" name="quantity" class="form-input" id="quantity"></td>
+                </tr>
+                <tr>
+                    <td><label for="price" class="form-label">Price:</label></td>
+                    <td><input type="number" step="0.01" name="price" class="form-input" id="price"></td>
+                </tr>
+                <button type="submit" class="form-button">Add Sales Record</button>
+        </form>
+    </div>
+                                
+</body>
+</html>
