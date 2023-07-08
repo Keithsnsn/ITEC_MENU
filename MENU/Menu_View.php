@@ -1,8 +1,8 @@
 <?php
 $servername = "127.0.0.1";
-$username = "root";
-$password = "";
-$database = "Menu_Data";
+$username = "aveann";
+$password = "aveann";
+$database = "menu_data";
 
 // Create a connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Retrieve data from the database
-$sql = "SELECT name, email, message FROM items";
+$sql = "SELECT goods_type, item_name, quantity, price, total FROM sales";
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -71,9 +71,11 @@ $result = $conn->query($sql);
   if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
       echo "<div class='form-data'>";
-      echo "<p><strong>Name:</strong> " . $row["name"] . "</p>";
-      echo "<p><strong>Email:</strong> " . $row["email"] . "</p>";
-      echo "<p><strong>Message:</strong> " . $row["message"] . "</p>";
+      echo "<p><strong>Type of Goods:</strong> " . $row["goods_type"] . "</p>";
+      echo "<p><strong>Item Name:</strong> " . $row["item_name"] . "</p>";
+      echo "<p><strong>Quantity:</strong> " . $row["quantity"] . "</p>";
+      echo "<p><strong>Price:</strong> $" . $row["price"] . "</p>";
+      echo "<p><strong>Total:</strong> $" . $row["total"] . "</p>";
       echo "</div>";
       echo "<hr>";
     }

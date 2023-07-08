@@ -1,8 +1,8 @@
 <?php
 $servername = "127.0.0.1";
-$username = "root";
-$password = "";
-$database = "Menu_Data";
+$username = "aveann";
+$password = "aveann";
+$database = "menu_data";
 
 // Create a connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -13,19 +13,20 @@ if ($conn->connect_error) {
 }
 
 // Retrieve form data
-$goodsType = $_POST['goods-type'];
-$itemName = $_POST['item-name'];
-$quantity = $_POST['quantity'];
-$price = $_POST['price'];
+$goodsType = $_POST['goods-type'] ?? '';
+$itemName = $_POST['item-name'] ?? '';
+$quantity = $_POST['quantity'] ?? 0;
+$price = $_POST['price'] ?? 0;
+$total = $_POST['total'] ?? 0;
 
 // Prepare the INSERT statement
-$sql = "INSERT INTO sales (goods_type, item_name, quantity, price) VALUES (?, ?, ?, ?)";
+$sql = "INSERT INTO Menu (goods_type, item_name, quantity, price, total) VALUES (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssdi", $goodsType, $itemName, $quantity, $price);
+$stmt->bind_param("ssidd", $goodsType, $itemName, $quantity, $price, $total);
 
 // Execute the statement
 if ($stmt->execute()) {
-    echo "Sales record added successfully.";
+    echo "Form data saved successfully.";
 } else {
     echo "Error: " . $stmt->error;
 }
